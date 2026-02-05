@@ -41,7 +41,7 @@ $(function(){
         '</div>'
       );
     });
-    
+    //dsad
     cartTotal.html('<h3 role="status" aria-live="polite">Total: $' + total.toFixed(2) + '</h3>');
   }
 
