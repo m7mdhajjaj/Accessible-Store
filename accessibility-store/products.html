@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Store - Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div aria-live="assertive" aria-atomic="true" class="sr-only" id="announcements"></div>
+    
+    <header>
+        <h1>Available Products</h1>
+        <nav aria-label="Main navigation">
+            <a href="index.html" aria-label="Go to home page">Home</a>
+            <a href="cart.html" aria-label="View shopping cart">Cart</a>
+        </nav>
+    </header>
+    <main role="main">
+        <div role="search" aria-label="Product search">
+            <label for="search">Search products:</label>
+            <input type="text" id="search" placeholder="Search..." aria-label="Search products">
+        </div>
+        <div id="filter" role="region" aria-label="Product filters">
+            <label for="category-filter">Filter by category:</label>
+            <select id="category-filter">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="assistive">Assistive</option>
+                <option value="software">Software</option>
+            </select>
+        </div>
+        <div id="loading" role="status" aria-live="polite" style="display: none;">
+            <p>Loading products...</p>
+        </div>
+        <div id="search-results" role="status" aria-live="polite" aria-atomic="true"></div>
+        <div id="products-list" role="region" aria-label="Products"></div>
+    </main>
+    
+    <div id="cart-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" tabindex="0" role="button" aria-label="Close modal">&times;</span>
+            <h2 id="modal-title">Added to Cart</h2>
+            <p id="modal-message"></p>
+            <button id="modal-ok">OK</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Accessibility Store</p>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+</html>

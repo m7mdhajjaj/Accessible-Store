@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "free",
+        "price": 49.99 ,
+        "category": "Electronics",
+        "description": "Ergonomic keyboard with large keys"
+    },
+    {
+        "id": 2,
+        "name": "Screen Reader Software",
+        "price": 99.99,
+        "category": "Software",
+        "description": "Professional screen reading tool"
+    },
+    {
+        "id": 3,
+        "name": "Braille Display",
+        "price": 299.99,
+        "category": "Assistive",
+        "description": "40-cell refreshable braille display"
+    },
+    {
+        "id": 4,
+        "name": "Voice Control Mouse",
+        "price": 79.99,
+        "category": "Electronics",
+        "description": "Hands-free mouse control"
+    },
+    {
+        "id": 5,
+        "name": "Large Print Keyboard",
+        "price": 39.99,
+        "category": "Electronics",
+        "description": "High contrast keyboard for low vision"
+    }
+]
