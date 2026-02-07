@@ -7,6 +7,7 @@ $(function () {
     // Show loading state
     $("#loading").show();
     $("#products-list").hide();
+    announceToScreenReader("Loading products, please wait...");
 
     $.ajax({
       url: "data/products.json",
@@ -18,6 +19,7 @@ $(function () {
         // Hide loading state
         $("#loading").hide();
         $("#products-list").show();
+        announceToScreenReader("Products loaded successfully");
 
         // Check if there's a search query in the URL
         var urlParams = new URLSearchParams(window.location.search);
@@ -38,6 +40,7 @@ $(function () {
       error: function () {
         $("#loading").hide();
         $("#products-list").show();
+        announceToScreenReader("Failed to load products");
         alert("Failed to load product data.");
       },
     });
@@ -178,5 +181,16 @@ $(function () {
           categoryText,
       );
     }
+  }
+
+  function announceToScreenReader(message) {
+    var announcement = $("#announcements");
+    if (announcement.length === 0) {
+      $("body").append(
+        '<div id="announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>',
+      );
+      announcement = $("#announcements");
+    }
+    announcement.text(message);
   }
 });

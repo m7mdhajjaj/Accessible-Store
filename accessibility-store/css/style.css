@@ -260,6 +260,23 @@ button:hover {
     padding: 40px;
     font-size: 1.2em;
     color: #35424a;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+#loading p {
+    margin: 0;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
 }
 
 @media (max-width: 768px) {
