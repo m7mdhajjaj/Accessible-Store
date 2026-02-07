@@ -8,6 +8,11 @@
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div
+      aria-live="polite"
+      aria-atomic="true"
+      class="sr-only"
+      id="announcements"></div>
     <header>
       <h1>Your Shopping Cart</h1>
       <nav>
@@ -16,6 +21,9 @@
       </nav>
     </header>
     <main id="main-content" tabindex="-1">
+      <div id="loading" role="status" aria-live="polite" style="display: none">
+        <p>Loading cart...</p>
+      </div>
       <div id="cart-items"></div>
       <div id="cart-total"></div>
       <button id="checkout">Checkout</button>

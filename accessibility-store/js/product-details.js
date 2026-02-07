@@ -14,6 +14,7 @@ $(function () {
   function loadProductDetails(id) {
     $("#loading").show();
     $("#product-details").hide();
+    announceToScreenReader("Loading product details, please wait...");
 
     $.ajax({
       url: "data/products.json",
@@ -23,13 +24,16 @@ $(function () {
         const product = data.find((p) => p.id == id);
 
         if (product) {
+          announceToScreenReader("Product details loaded successfully");
           displayProduct(product);
         } else {
+          announceToScreenReader("Product not found");
           alert("Product not found");
           window.location.href = "products.html";
         }
       },
       error: function () {
+        announceToScreenReader("Failed to load product details");
         alert("Failed to load product details");
         window.location.href = "products.html";
       },
