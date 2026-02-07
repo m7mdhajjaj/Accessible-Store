@@ -42,6 +42,19 @@ nav a:hover {
     padding: 10px;
     margin: 10px 0;
     background: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-color: #35424a;
+}
+
+.product:focus {
+    outline: 3px solid #e8491d;
+    outline-offset: 2px;
 }
 
 .product h2 {
@@ -149,4 +162,112 @@ button:hover {
     margin: 10px 0;
     font-weight: bold;
     color: #35424a;
+}
+
+/* Product Details Page */
+.product-detail-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.product-image-container {
+    flex: 1;
+    max-width: 400px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-info h2 {
+    margin: 0;
+    color: #35424a;
+    font-size: 2em;
+}
+
+.category-badge {
+    display: inline-block;
+    background: #e8491d;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    width: fit-content;
+}
+
+.product-info .description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+}
+
+.product-price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #35424a;
+}
+
+.view-details-btn {
+    display: inline-block;
+    background: #35424a;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+.view-details-btn:hover,
+.view-details-btn:focus {
+    background: #e8491d;
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #35424a;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.back-link:hover,
+.back-link:focus {
+    color: #e8491d;
+    text-decoration: underline;
+}
+
+#loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #35424a;
+}
+
+@media (max-width: 768px) {
+    .product-detail-container {
+        flex-direction: column;
+    }
+    
+    .product-image-container {
+        max-width: 100%;
+    }
 }
