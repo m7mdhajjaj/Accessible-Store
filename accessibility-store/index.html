@@ -1,56 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accessibility Store</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-        $(function() {
-            $('#search-button').on('click', function() {
-                var searchTerm = $('#search-input').val().trim();
-                if (searchTerm) {
-                    window.location.href = 'products.html?search=' + encodeURIComponent(searchTerm);
-                } else {
-                    window.location.href = 'products.html';
-                }
-            });
-            
-            $('#search-input').on('keypress', function(e) {
-                if (e.which === 13) {
-                    $('#search-button').click();
-                }
-            });
+      $(function () {
+        $("#search-button").on("click", function () {
+          var searchTerm = $("#search-input").val().trim();
+          if (searchTerm) {
+            window.location.href =
+              "products.html?search=" + encodeURIComponent(searchTerm);
+          } else {
+            window.location.href = "products.html";
+          }
         });
+
+        $("#search-input").on("keypress", function (e) {
+          if (e.which === 13) {
+            $("#search-button").click();
+          }
+        });
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
-        <h1>Welcome to the Accessibility Store</h1>
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html" aria-label="Go to home page">Home</a></li>
-                <li><a href="products.html" aria-label="Browse products">Products</a></li>
-                <li><a href="cart.html" aria-label="View shopping cart">Cart</a></li>
-            </ul>
-        </nav>
+      <h1>Welcome to the Accessibility Store</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-label="Go to home page">Home</a></li>
+          <li>
+            <a href="products.html" aria-label="Browse products">Products</a>
+          </li>
+          <li><a href="cart.html" aria-label="View shopping cart">Cart</a></li>
+        </ul>
+      </nav>
     </header>
-    <main role="main">
-        <section id="hero" aria-labelledby="hero-heading">
-            <h2 id="hero-heading">Your one-stop shop for accessible products</h2>
-            <p>Explore our range of products designed for everyone.</p>
-        </section>
-        <section id="search" aria-label="Product search">
-            <label for="search-input" class="sr-only">Search for products</label>
-            <input type="text" id="search-input" placeholder="Search for products..." aria-describedby="search-help">
-            <button id="search-button" aria-label="Search products">Search</button>
-            <span id="search-help" class="sr-only">Enter product name or category</span>
-        </section>
+    <main role="main" id="main-content" tabindex="-1">
+      <section id="hero" aria-labelledby="hero-heading">
+        <h2 id="hero-heading">Your one-stop shop for accessible products</h2>
+        <p>Explore our range of products designed for everyone.</p>
+      </section>
+      <section id="search" aria-label="Product search">
+        <label for="search-input" class="sr-only">Search for products</label>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for products..."
+          aria-describedby="search-help" />
+        <button id="search-button" aria-label="Search products">Search</button>
+        <span id="search-help" class="sr-only"
+          >Enter product name or category</span
+        >
+      </section>
     </main>
     <footer>
-        <p>&copy; 2023 Accessibility Store. All rights reserved.</p>
+      <p>&copy; 2023 Accessibility Store. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 </html>
