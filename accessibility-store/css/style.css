@@ -57,6 +57,21 @@ nav a:hover {
     outline-offset: 2px;
 }
 
+.product-link {
+    color: #333;
+    text-decoration: none;
+}
+
+.product-link:hover {
+    color: #e8491d;
+    text-decoration: underline;
+}
+
+.product-link:focus {
+    outline: 2px solid #e8491d;
+    outline-offset: 2px;
+}
+
 .product h2 {
     margin: 0;
 }
@@ -137,6 +152,45 @@ button:hover {
     width: 80%;
     max-width: 400px;
     text-align: center;
+}
+
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item h3 {
+    margin: 0 0 5px 0;
+}
+
+.cart-item p {
+    margin: 5px 0;
+}
+
+.cart-item .remove-item {
+    align-self: center;
+}
+
+.cart-item .remove-item:focus {
+    outline: 3px solid #e8491d;
+    outline-offset: 2px;
 }
 
 .close {

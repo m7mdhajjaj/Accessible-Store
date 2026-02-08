@@ -59,16 +59,14 @@ $(function () {
       productsList.append(
         '<div class="product" data-product-id="' +
           product.id +
-          '" tabindex="0" role="button" aria-labelledby="product-name-' +
-          product.id +
-          '" aria-describedby="product-desc-' +
-          product.id +
           '" style="cursor: pointer;">' +
           '<h3 id="product-name-' +
           product.id +
-          '">' +
+          '"><a href="product-details.html?id=' +
+          product.id +
+          '" class="product-link">' +
           product.name +
-          "</h3>" +
+          "</a></h3>" +
           '<p id="product-desc-' +
           product.id +
           '">' +
@@ -88,30 +86,43 @@ $(function () {
       );
     });
 
-    // Add click event to products
+    // Add click event to products (for clicking anywhere on the card)
     $(".product").on("click", function (e) {
-      if (!$(e.target).hasClass("add-to-cart")) {
+      if (
+        !$(e.target).hasClass("add-to-cart") &&
+        !$(e.target).closest(".add-to-cart").length &&
+        !$(e.target).hasClass("product-link") &&
+        !$(e.target).closest(".product-link").length
+      ) {
         var productId = $(this).data("product-id");
         window.location.href = "product-details.html?id=" + productId;
       }
     });
 
-    // Add keyboard support
-    $(".product").on("keypress", function (e) {
-      if (e.which === 13 || e.which === 32) {
-        // Enter or Space
-        e.preventDefault();
-        if (!$(e.target).hasClass("add-to-cart")) {
-          var productId = $(this).data("product-id");
-          window.location.href = "product-details.html?id=" + productId;
-        }
-      }
-    });
-
-    // Prevent add to cart button from triggering product click
+    // Handle add to cart button click
     $(".add-to-cart").on("click", function (e) {
       e.stopPropagation();
+      e.preventDefault();
+      addToCart($(this).data("id"));
     });
+  }
+
+  function addToCart(productId) {
+    var product = window.productsData.find(function (p) {
+      return p.id === productId;
+    });
+    if (!product) return;
+
+    var cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    announceToScreenReader(product.name + " added to cart");
+
+    $("#modal-message").text(product.name + " has been added to your cart!");
+    if (typeof openModal === "function") {
+      openModal();
+    }
   }
 
   function filterProducts(searchTerm, category) {
