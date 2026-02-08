@@ -160,6 +160,15 @@ $(function () {
   $("#category-filter").on("change", function () {
     var category = $(this).val();
     var searchTerm = $("#search").val();
+
+    // Update text to show "selected" for the chosen option
+    $("#category-filter option").each(function () {
+      var text = $(this).text().replace(" - selected", "");
+      $(this).text(text);
+    });
+    var $selected = $("#category-filter option:selected");
+    $selected.text($selected.text() + " - selected");
+
     filterProducts(searchTerm, category);
   });
 
