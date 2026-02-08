@@ -28,6 +28,41 @@
       <div id="cart-total"></div>
       <button id="checkout">Checkout</button>
     </main>
+
+    <!-- Confirm Remove Modal -->
+    <div
+      id="confirm-modal"
+      class="modal"
+      role="alertdialog"
+      aria-labelledby="confirm-modal-title"
+      aria-describedby="confirm-modal-message"
+      aria-hidden="true">
+      <div class="modal-content">
+        <h2 id="confirm-modal-title">Confirm Remove</h2>
+        <p id="confirm-modal-message"></p>
+        <div class="modal-buttons">
+          <button id="confirm-yes" class="btn-danger">Yes, Remove</button>
+          <button id="confirm-no" class="btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Success Modal -->
+    <div
+      id="checkout-modal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="checkout-modal-title"
+      aria-hidden="true">
+      <div class="modal-content">
+        <h2 id="checkout-modal-title">Order Confirmed!</h2>
+        <p id="checkout-modal-message">
+          Thank you for your order. Your items will be delivered soon.
+        </p>
+        <button id="checkout-ok">OK</button>
+      </div>
+    </div>
+
     <footer>
       <p>&copy; 2023 Accessibility Store</p>
     </footer>
