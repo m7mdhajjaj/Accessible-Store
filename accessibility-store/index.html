@@ -50,7 +50,14 @@
       <section id="hero" aria-labelledby="hero-heading">
         <h2 id="hero-heading">Your one-stop shop for accessible products</h2>
         <p>Explore our range of products designed for everyone.</p>
+        <a
+          href="products.html"
+          class="cta-button"
+          aria-describedby="hero-heading"
+          >Shop Now</a
+        >
       </section>
+
       <section id="search" aria-label="Product search">
         <label for="search-input" class="sr-only">Search for products</label>
         <input
@@ -62,6 +69,131 @@
         <span id="search-help" class="sr-only"
           >Enter product name or category</span
         >
+      </section>
+
+      <section id="features" aria-labelledby="features-heading">
+        <h2 id="features-heading">Why Choose Our Store?</h2>
+        <div class="features-grid" role="list" aria-label="Store features">
+          <div class="feature-item" role="listitem">
+            <div class="feature-icon" aria-hidden="true">♿</div>
+            <h3>Accessibility First</h3>
+            <p>
+              All our products are tested for accessibility and compliance with
+              WCAG standards.
+            </p>
+          </div>
+          <div class="feature-item" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>
+              Free shipping on orders over $50. Get your products delivered
+              within 2-3 business days.
+            </p>
+          </div>
+          <div class="feature-item" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🛡️</div>
+            <h3>Quality Guarantee</h3>
+            <p>
+              30-day money-back guarantee on all products. Your satisfaction is
+              our priority.
+            </p>
+          </div>
+          <div class="feature-item" role="listitem">
+            <div class="feature-icon" aria-hidden="true">📞</div>
+            <h3>24/7 Support</h3>
+            <p>
+              Our customer support team is available around the clock to help
+              you with any questions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured-products" aria-labelledby="featured-heading">
+        <h2 id="featured-heading">Featured Products</h2>
+        <div id="featured-list" role="region" aria-label="Featured products">
+          <!-- Products will be loaded here -->
+        </div>
+        <div class="text-center">
+          <a href="products.html" class="view-all-button">View All Products</a>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Our Mission</h2>
+        <div class="about-content">
+          <p>
+            At Accessibility Store, we believe that everyone deserves equal
+            access to technology and daily essentials. Our carefully curated
+            selection includes products that enhance independence and improve
+            quality of life for people with disabilities.
+          </p>
+          <p>
+            We work directly with manufacturers and accessibility experts to
+            ensure every product meets the highest standards of usability and
+            design.
+          </p>
+        </div>
+      </section>
+
+      <section id="testimonials" aria-labelledby="testimonials-heading">
+        <h2 id="testimonials-heading">What Our Customers Say</h2>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-item">
+            <p>
+              "The screen reader I purchased works perfectly with my computer.
+              Great customer service too!"
+            </p>
+            <cite
+              >— Sarah M.,
+              <span class="sr-only">Customer testimonial</span></cite
+            >
+          </blockquote>
+          <blockquote class="testimonial-item">
+            <p>
+              "Fast delivery and exactly what I needed. The ergonomic keyboard
+              has made typing so much easier."
+            </p>
+            <cite
+              >— John D.,
+              <span class="sr-only">Customer testimonial</span></cite
+            >
+          </blockquote>
+          <blockquote class="testimonial-item">
+            <p>
+              "Excellent selection of accessibility tools. The website is easy
+              to navigate with my screen reader."
+            </p>
+            <cite
+              >— Maria L.,
+              <span class="sr-only">Customer testimonial</span></cite
+            >
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="newsletter" aria-labelledby="newsletter-heading">
+        <h2 id="newsletter-heading">Stay Updated</h2>
+        <p>
+          Subscribe to our newsletter for the latest products and accessibility
+          tips.
+        </p>
+        <form class="newsletter-form" aria-label="Newsletter signup">
+          <label for="email-input">Email Address</label>
+          <input
+            type="email"
+            id="email-input"
+            name="email"
+            required
+            aria-describedby="email-help"
+            placeholder="Enter your email address" />
+          <span id="email-help" class="sr-only"
+            >We'll never share your email with third parties</span
+          >
+          <button type="submit" aria-describedby="newsletter-heading">
+            Subscribe
+          </button>
+        </form>
       </section>
     </main>
     <footer>

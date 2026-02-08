@@ -50,6 +50,11 @@ $(function () {
             '<li class="cart-item" aria-labelledby="cart-item-name-' +
               index +
               '">' +
+              '<img src="' +
+              (item.image || "https://picsum.photos/seed/default/150/100") +
+              '" alt="' +
+              (item.alt || item.name) +
+              '" class="cart-item-image">' +
               '<div class="cart-item-info">' +
               '<h3 id="cart-item-name-' +
               index +

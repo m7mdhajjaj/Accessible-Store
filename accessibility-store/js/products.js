@@ -60,6 +60,11 @@ $(function () {
         '<div class="product" data-product-id="' +
           product.id +
           '" style="cursor: pointer;">' +
+          '<img src="' +
+          product.image +
+          '" alt="' +
+          product.alt +
+          '" class="product-image" loading="lazy">' +
           '<h3 id="product-name-' +
           product.id +
           '"><a href="product-details.html?id=' +
