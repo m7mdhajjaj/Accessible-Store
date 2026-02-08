@@ -40,12 +40,17 @@ $(function () {
         announceToScreenReader("Your cart is empty");
       } else {
         var total = 0;
+        cartItems.append(
+          '<ul class="cart-list" role="list" aria-label="Cart items"></ul>',
+        );
+        var cartList = cartItems.find(".cart-list");
         $.each(window.cart, function (index, item) {
           total += item.price;
-          cartItems.append(
-            '<div class="cart-item" tabindex="0" role="article" aria-labelledby="cart-item-name-' +
+          cartList.append(
+            '<li class="cart-item" aria-labelledby="cart-item-name-' +
               index +
               '">' +
+              '<div class="cart-item-info">' +
               '<h3 id="cart-item-name-' +
               index +
               '">' +
@@ -59,12 +64,13 @@ $(function () {
               '">$' +
               item.price +
               "</p>" +
+              "</div>" +
               '<button class="remove-item" data-index="' +
               index +
               '" aria-label="Remove ' +
               item.name +
               ' from cart">Remove</button>' +
-              "</div>",
+              "</li>",
           );
         });
         cartTotal.html(
