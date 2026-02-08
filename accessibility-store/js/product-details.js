@@ -53,7 +53,7 @@ $(function () {
 
     $("#product-image").attr({
       src: product.image || "images/placeholder.png",
-      alt: product.name,
+      alt: product.alt || product.name,
     });
 
     // Set page title

@@ -2,36 +2,46 @@
     {
         "id": 1,
         "name": "free",
-        "price": 49.99 ,
+        "price": 49.99,
         "category": "Electronics",
-        "description": "Ergonomic keyboard with large keys"
+        "description": "Ergonomic keyboard with large keys",
+        "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&h=200&fit=crop",
+        "alt": "Ergonomic keyboard with large, high-contrast keys designed for easy typing"
     },
     {
         "id": 2,
         "name": "Screen Reader Software",
         "price": 99.99,
         "category": "Software",
-        "description": "Professional screen reading tool"
+        "description": "Professional screen reading tool",
+        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&h=200&fit=crop",
+        "alt": "Screen reader software interface showing text-to-speech controls"
     },
     {
         "id": 3,
         "name": "Braille Display",
         "price": 299.99,
         "category": "Assistive",
-        "description": "40-cell refreshable braille display"
+        "description": "40-cell refreshable braille display",
+        "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=200&fit=crop",
+        "alt": "40-cell refreshable braille display device with tactile cells"
     },
     {
         "id": 4,
         "name": "Voice Control Mouse",
         "price": 79.99,
         "category": "Electronics",
-        "description": "Hands-free mouse control"
+        "description": "Hands-free mouse control",
+        "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=200&fit=crop",
+        "alt": "Voice-controlled mouse device with microphone for hands-free computer control"
     },
     {
         "id": 5,
         "name": "Large Print Keyboard",
         "price": 39.99,
         "category": "Electronics",
-        "description": "High contrast keyboard for low vision"
+        "description": "High contrast keyboard for low vision",
+        "image": "https://images.unsplash.com/photo-1595225476474-87563907a212?w=300&h=200&fit=crop",
+        "alt": "High contrast keyboard with large print letters for people with low vision"
     }
 ]
