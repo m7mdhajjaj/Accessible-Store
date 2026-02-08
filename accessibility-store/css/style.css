@@ -163,6 +163,51 @@ button:hover {
     text-align: center;
 }
 
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-danger:focus {
+    outline: 3px solid #721c24;
+    outline-offset: 2px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-secondary:focus {
+    outline: 3px solid #343a40;
+    outline-offset: 2px;
+}
+
 .cart-list {
     list-style: none;
     padding: 0;

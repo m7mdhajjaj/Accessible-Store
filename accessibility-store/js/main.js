@@ -127,7 +127,7 @@ $(function () {
 
   function openModal() {
     window.lastFocusedElement = document.activeElement;
-    $("#announcements").text("Dialog opened");
+    $("#announcements").text("Product added to cart successfully");
     $("#cart-modal")
       .attr("aria-hidden", "false")
       .fadeIn(function () {

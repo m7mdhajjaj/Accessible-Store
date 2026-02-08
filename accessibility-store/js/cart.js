@@ -1,5 +1,131 @@
 $(function () {
   window.cart = JSON.parse(localStorage.getItem("cart")) || [];
+  var pendingRemoveIndex = null;
+  var lastFocusedElement = null;
+
+  // Focus trap function for modals
+  function trapFocus(e, modalId) {
+    if (e.key === "Tab" && $(modalId).is(":visible")) {
+      var focusableElements = $(modalId)
+        .find(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        )
+        .filter(":visible");
+      var firstElement = focusableElements.first()[0];
+      var lastElement = focusableElements.last()[0];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    }
+
+    if (e.key === "Escape") {
+      closeConfirmModal();
+      closeCheckoutModal();
+    }
+  }
+
+  // Confirm Remove Modal functions
+  function openConfirmModal(itemName, index) {
+    pendingRemoveIndex = index;
+    lastFocusedElement = document.activeElement;
+    $("#confirm-modal-message").text(
+      'Are you sure you want to remove "' + itemName + '" from your cart?',
+    );
+    $("#announcements").text(
+      "Confirm remove dialog. " +
+        itemName +
+        ". Press Yes to remove or Cancel to keep.",
+    );
+    $("#confirm-modal")
+      .attr("aria-hidden", "false")
+      .fadeIn(function () {
+        $("#confirm-no").focus();
+      });
+    $(document).on("keydown.confirmModal", function (e) {
+      trapFocus(e, "#confirm-modal");
+    });
+  }
+
+  function closeConfirmModal() {
+    $("#confirm-modal")
+      .attr("aria-hidden", "true")
+      .fadeOut(function () {
+        $("#announcements").text("Dialog closed");
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      });
+    $(document).off("keydown.confirmModal");
+    pendingRemoveIndex = null;
+  }
+
+  // Checkout Modal functions
+  function openCheckoutModal() {
+    lastFocusedElement = document.activeElement;
+    $("#announcements").text(
+      "Order completed successfully! Thank you for your purchase.",
+    );
+    $("#checkout-modal")
+      .attr("aria-hidden", "false")
+      .fadeIn(function () {
+        $("#checkout-ok").focus();
+      });
+    $(document).on("keydown.checkoutModal", function (e) {
+      trapFocus(e, "#checkout-modal");
+    });
+  }
+
+  function closeCheckoutModal() {
+    $("#checkout-modal")
+      .attr("aria-hidden", "true")
+      .fadeOut(function () {
+        $("#announcements").text("Dialog closed");
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      });
+    $(document).off("keydown.checkoutModal");
+  }
+
+  // Confirm modal button handlers
+  $("#confirm-yes").on("click", function () {
+    if (pendingRemoveIndex !== null) {
+      var itemName = window.cart[pendingRemoveIndex].name;
+      window.cart.splice(pendingRemoveIndex, 1);
+      localStorage.setItem("cart", JSON.stringify(window.cart));
+      closeConfirmModal();
+      displayCart();
+      setTimeout(function () {
+        announceToScreenReader(itemName + " has been removed successfully");
+      }, 500);
+    }
+  });
+
+  $("#confirm-no").on("click", function () {
+    closeConfirmModal();
+    setTimeout(function () {
+      announceToScreenReader("Remove cancelled. Item kept in cart.");
+    }, 300);
+  });
+
+  // Checkout modal button handler
+  $("#checkout-ok").on("click", function () {
+    closeCheckoutModal();
+    setTimeout(function () {
+      announceToScreenReader(
+        "Order completed successfully. Thank you for shopping with us!",
+      );
+    }, 300);
+  });
 
   $(document).on("click", ".add-to-cart", function () {
     var productId = $(this).data("id");
@@ -99,16 +225,7 @@ $(function () {
   $(document).on("click", ".remove-item", function () {
     var index = $(this).data("index");
     var itemName = window.cart[index].name;
-
-    announceToScreenReader("Removing " + itemName + " from cart...");
-
-    window.cart.splice(index, 1);
-    localStorage.setItem("cart", JSON.stringify(window.cart));
-    displayCart();
-
-    setTimeout(function () {
-      announceToScreenReader(itemName + " removed from cart");
-    }, 500);
+    openConfirmModal(itemName, index);
   });
 
   $("#checkout").on("click", function () {
@@ -124,10 +241,10 @@ $(function () {
 
     setTimeout(function () {
       announceToScreenReader("Thank you for your order!");
-      alert("Thank you for your order!");
       window.cart = [];
       localStorage.removeItem("cart");
       displayCart();
+      openCheckoutModal();
     }, 500);
   });
 
